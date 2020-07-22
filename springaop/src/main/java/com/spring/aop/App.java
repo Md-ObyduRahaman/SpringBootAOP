@@ -10,6 +10,8 @@ import org.springframework.context.support.AbstractApplicationContext;
 public class App {
 	public static void main(String[] args) {
 
+		// -->https://howtodoinjava.com/spring-aop/aspectj-pointcut-expressions/
+
 		AbstractApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 		Student st = context.getBean("student", Student.class);
 		Employee employee = context.getBean("employee", Employee.class);
