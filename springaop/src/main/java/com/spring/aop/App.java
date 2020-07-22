@@ -12,6 +12,8 @@ public class App {
 
 		AbstractApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 		Student st = context.getBean("student", Student.class);
-		st.study();
+		Employee employee = context.getBean("employee", Employee.class);
+		st.studyAnything();
+		employee.studySomething();
 	}
 }

@@ -5,8 +5,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class Student {
 
-	public void study() {
+	public int studyAnything() {
 		System.out.println("i am in school and studying right now !");
+		return 0;
 	}
 
 }
