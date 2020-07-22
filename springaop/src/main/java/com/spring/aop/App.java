@@ -16,7 +16,7 @@ public class App {
 		Student st = context.getBean("student", Student.class);
 		Employee employee = context.getBean("employee", Employee.class);
 		// join point(before)
-		st.studyAnything();
+		st.studyAnything(5, 5);
 		// join point(after)
 
 		// join point(before)

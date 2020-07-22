@@ -1,5 +1,6 @@
 package com.spring.aop;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -19,8 +20,14 @@ public class Human {
 	// @Before("execution(public * study*())") // wildcard(its optional for point
 	// cut)
 	@Before("myPointCut()") // wildcard
-	public void wekeUp() {
-		System.out.println("Good morning");// its not a simple method its a advice
+	public void wekeUp(JoinPoint j) {
+		// System.out.println("Good morning " + j.getSignature().getName());// its not a
+		// simple
+		// method its a advice
+		// System.out.println("Good morning " + j.getArgs()[0]);// its not a simple
+		// method its a advice
+		// System.out.println("Good morning " + j.getTarget().getClass().getName());
+		System.out.println("Good morning " + j.getThis().getClass().getName());
 	}
 
 	// @After("execution(public * study*())") // wildcard(its optional for point
@@ -30,7 +37,8 @@ public class Human {
 		System.out.println("Good morning");// its not a simple method its a advice
 	}
 
-	@Pointcut("execution(public * study*())") // wildcard
+	// @Pointcut("execution(public * study*())") // wildcard
+	@Pointcut("execution(public * studyAnything(int,int))")
 	public void myPointCut() {
 	}
 }
