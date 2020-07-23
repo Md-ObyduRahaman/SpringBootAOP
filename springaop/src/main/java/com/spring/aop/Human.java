@@ -1,7 +1,9 @@
 package com.spring.aop;
 
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
@@ -45,6 +47,22 @@ public class Human {
 	@AfterThrowing(pointcut = "execution( * doOperation())", throwing = "ex")
 	public void wakeUp(MyExeption ex) {
 		System.out.println("This is my through exception =" + ex);
+	}
+
+	@Around("execution( int rankOfVideo(int,int))")
+	public Object aroundAdvice(ProceedingJoinPoint jp) {
+		Object[] objects = jp.getArgs();
+		objects[0] = Integer.parseInt(objects[0] + "") - 50;
+		objects[1] = Integer.parseInt(objects[1] + "") - 20;
+		Object res = null;
+		try {
+			res = jp.proceed(objects);
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		System.out.println(res);
+
+		return res;
 	}
 
 }

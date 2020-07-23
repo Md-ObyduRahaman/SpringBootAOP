@@ -15,4 +15,9 @@ public class Student {
 
 	}
 
+	public int rankOfVideo(int noOfViews, int watchtime) {
+		System.out.println("This is rank method" + noOfViews + " ....." + watchtime);
+		return (noOfViews * watchtime) - (noOfViews + watchtime);
+	}
+
 }
