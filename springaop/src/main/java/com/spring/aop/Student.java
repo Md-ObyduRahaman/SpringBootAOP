@@ -10,4 +10,9 @@ public class Student {
 		return 500;
 	}
 
+	public int doOperation() {
+		throw new MyExeption("this is my exception..!");
+
+	}
+
 }

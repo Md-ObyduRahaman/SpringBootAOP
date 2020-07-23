@@ -1,6 +1,7 @@
 package com.spring.aop;
 
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
@@ -39,6 +40,11 @@ public class Human {
 	@AfterReturning(pointcut = "execution( * studyAnything(..))", returning = "nuumValue")
 	public void wakeUp(int nuumValue) {
 		System.out.println("Study * method return value =" + nuumValue);
+	}
+
+	@AfterThrowing(pointcut = "execution( * doOperation())", throwing = "ex")
+	public void wakeUp(MyExeption ex) {
+		System.out.println("This is my through exception =" + ex);
 	}
 
 }

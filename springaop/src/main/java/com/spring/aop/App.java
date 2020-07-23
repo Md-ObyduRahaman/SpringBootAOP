@@ -17,6 +17,7 @@ public class App {
 		Employee employee = context.getBean("employee", Employee.class);
 		// join point(before)
 		int studyAnything = st.studyAnything(5, 5);
+		st.doOperation();
 		System.out.println("Return value :" + studyAnything);
 		// join point(after)
 
