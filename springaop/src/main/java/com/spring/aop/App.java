@@ -16,11 +16,12 @@ public class App {
 		Student st = context.getBean("student", Student.class);
 		Employee employee = context.getBean("employee", Employee.class);
 		// join point(before)
-		st.studyAnything(5, 5);
+		int studyAnything = st.studyAnything(5, 5);
+		System.out.println("Return value :" + studyAnything);
 		// join point(after)
 
 		// join point(before)
-		employee.studySomething();
+		// employee.studySomething();
 		// join point(before)
 	}
 }
